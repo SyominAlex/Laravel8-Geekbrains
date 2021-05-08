@@ -16,7 +16,12 @@ class NewsController extends Controller
         }*/
         //dd($this->newsList, 'hello');
         //return view('news', ['newsList' => $this->newsList]);
-        return view('news.index');
+
+        // eager loading
+        // $news = News::all();
+        // dd($news);
+        $news = News::with('category')->get();
+        return view('news.index', compact('news'));
     }
 
     public function show(News $news)
