@@ -1,3 +1,4 @@
+{{--
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-{{--    {{ $news }}--}}
+--}}
+{{--    {{ $news }}--}}{{--
+
     <ul>
         @foreach($news as $newsItem)
             <li><a href="{{ route('news.show', ['news' => $newsItem]) }}">({{ $newsItem->category->name }}) {{ $newsItem->title }}</a></li>
@@ -16,3 +19,35 @@
     </ul>
 </body>
 </html>
+--}}
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('News') }}
+        </h2>
+    </x-slot>
+
+    <x-content-body>
+        <ul>
+            {{--@if($news->isNotEmpty())
+                @foreach($news as $newsItem)
+                    <li>#{{ $newsItem->id }}. <a href="{{ route('news.show', ['news' => $newsItem]) }}">{{ $newsItem->title }}</a></li>
+                @endforeach
+            @else
+                <p>There's no news for today</p>
+            @endif--}}
+            <div class="flex flex-wrap justify-between -mx-3">
+                @forelse($news as $newsItem)
+                    {{--<li>#{{ $newsItem->id }}. <a href="{{ route('news.show', ['news' => $newsItem]) }}">{{ $newsItem->title }}</a></li>--}}
+                        <div class="w-full md:w-1/3 lg:1/4 px-3">
+                            <x-news.news-preview :news="$newsItem"/>
+                        </div>
+                @empty
+                    <p>There's no news for today</p>
+                @endforelse
+            </div>
+        </ul>
+    </x-content-body>
+
+</x-app-layout>
