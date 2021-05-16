@@ -1,0 +1,11 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+
+    <x-content-body>
+        There's no news for today
+    </x-content-body>
+</x-app-layout>
