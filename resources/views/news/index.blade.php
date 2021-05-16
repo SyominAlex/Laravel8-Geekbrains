@@ -29,7 +29,9 @@
     </x-slot>
 
     <x-content-body>
-        <ul>
+        @if(session()->has('success'))
+            <div class="mb-6 bg-green-200 text-green-700 px-3 px-2 rounded-lg">{{ session()->get('success') }}</div>
+        @endif
             {{--@if($news->isNotEmpty())
                 @foreach($news as $newsItem)
                     <li>#{{ $newsItem->id }}. <a href="{{ route('news.show', ['news' => $newsItem]) }}">{{ $newsItem->title }}</a></li>
@@ -47,7 +49,6 @@
                     <p>There's no news for today</p>
                 @endforelse
             </div>
-        </ul>
     </x-content-body>
 
 </x-app-layout>
