@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// phpinfo();
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/name/{name}', function (string $name): string {
-    return "Hello, {$name}";
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/about', function () {
-    return "Страница с информацией о проекте";
-});
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::post('/news/create', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show'); // этот шаблон ставим после create, чтобы не искал create как id
 
-Route::get('/news', function () {
-    return "Страница для вывода нескольких новостей";
-});
-
-Route::get('/news/{id}', function (string $id): string {
-    return "Новость №{$id}";
-});
+require __DIR__.'/auth.php';
 
