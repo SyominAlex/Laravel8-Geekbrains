@@ -34,6 +34,7 @@ class CreateNewsTest extends TestCase
             'category_id' => $category->id,
         ];
 
+        // $this->expectException(); //
         $response = $this->post('/news/create', $newsData); // post имитирует request, не отправляет его на самом деле, под капотом нет вызова http-запроса
 
         $response->assertDatabaseHas('news', $newsData); // нет такого метода assertDatabaseHas()?

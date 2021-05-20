@@ -73,6 +73,10 @@ class NewsController extends Controller
         dump($request->validated());
         dd(1);*/
 
+        /*$token = env('TELEGRAM_BOT_TOKEN'); // если сделать php artisan config:cache то env не будет работать (возвращает NULL, если конфиг закеширован)
+        $token2 = config('telegram.bot.token'); // config:cache выполняется всегда на любом сервере, который находится в продакшене
+        // вывод: всегда добавлять константы в .env, а потом дублировать их в конфиге, чтобы конфиг закешировался bootstrap/cache/config.php*/
+
         News::create($request->validated()); // из соображений безопасности validated() лучше all()
 
         return redirect()->route('news.index')->with('success', 'Новость успешно добавлена!'); // with содержит flash-сообщение, которое будет лежать до момента следующего респонса
