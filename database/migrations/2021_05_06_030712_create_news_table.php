@@ -17,6 +17,7 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained();
             $table->string('title');
+            $table->integer('rating'); // new
             // $table->string('description'); // очень мало места для description
             $table->text('description');
             $table->timestamps();
