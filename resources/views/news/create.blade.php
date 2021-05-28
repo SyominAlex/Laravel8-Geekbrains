@@ -25,6 +25,11 @@
                 <x-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" required autofocus />
             </div>
 
+            <div>
+                <x-label for="rating" :value="__('Rating')" />
+                <x-input id="rating" class="block mt-1 w-full" type="number" min="1" max="5" name="rating" :value="old('rating')" required />
+            </div>
+
             <div class="mt-4">
                 <x-label for="category_id" :value="__('Category')" />
                 <select name="category_id" id="category_id"> {{--class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"--}}

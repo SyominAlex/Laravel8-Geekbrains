@@ -28,7 +28,8 @@ class StoreNewsRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:100'], // кастомизация через массив гораздо лучше, можно добавить Rule::unique('news')->ignore(1, 2)
             'description' => ['required', 'string', 'max:300'],
-            'category_id' => ['required', 'integer', 'exists:categories,id'] // 'nullable' - необязательное поле, может быть 'unique:news' и т.д.
+            'category_id' => ['required', 'integer', 'exists:categories,id'], // 'nullable' - необязательное поле, может быть 'unique:news' и т.д.
+            'rating' => ['required', 'integer', 'min:1', 'max:5']
         ];
     }
 }

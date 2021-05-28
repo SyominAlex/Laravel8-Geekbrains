@@ -64,7 +64,8 @@ class CategoryController extends Controller
 //        \DB::update("UPDATE categories SET name = 'test' WHERE id = 2");
 //        \DB::delete();
 
-            // 1. "Чистый" запрос в БД
+
+        // 1. "Чистый" запрос в БД
 //        $query1 = \DB::select('SELECT * FROM categories WHERE id > 5');
 
         // 2. Использование query builder'a
