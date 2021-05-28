@@ -24,7 +24,8 @@ class NewsFactory extends Factory
         return [
             // 'title' => $this->faker->title, // было Mr., Mss.
             'title' => $this->faker->text(50),
-            'description' => $this->faker->text(300)
+            'description' => $this->faker->text(300),
+            'rating' => rand(1,5)
         ];
     }
 }

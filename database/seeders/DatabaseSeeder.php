@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        /*$categories = Category::factory(5)
+        $categories = Category::factory(5)
             ->has(News::factory(10))
-            ->create();*/
+            ->create();
 
         Category::factory(5)
             ->create();

@@ -29,6 +29,7 @@ Route::post('/news/create', [NewsController::class, 'store'])->name('news.store'
 Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show'); // этот шаблон ставим после create, чтобы не искал create как id
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 require __DIR__.'/auth.php';
 
